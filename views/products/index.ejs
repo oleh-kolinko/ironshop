@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Products</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+
+    <h1>Products:</h1>
+    <ul>
+      <% products.forEach(oneProd => { %>
+        <a href='/products/<%= oneProd._id %>'>
+        <li class='white-box'>
+          <h3><%= oneProd.name %></h3>
+          <p>$<%= oneProd.price %></p>
+          <img src='<%= oneProd.imageUrl %>'><br>
+          <object><a href="/products/<%= oneProd.id %>/edit"><button class='edit-btn'>EDIT</button></a></object>
+          <object>
+            <form action='/products/<%= oneProd.id %>/delete' method='post'>
+              <button class='delete-btn'>X</button>
+            </form>
+          </object>
+        </li>
+        </a>
+      <% }) %>
+      <a href="/products/new">
+      <li class='white-box'>
+        <h3>Create new product</h3>
+        <img src='http://icons.veryicon.com/ico/System/Icons8%20Metro%20Style/Very%20Basic%20Plus.ico'>
+      </li>
+      </a>
+    </ul>
+  </body>
+</html>
